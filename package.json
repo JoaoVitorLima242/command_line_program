@@ -6,6 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "engines": {
+    "node": "19"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/JoaoVitorLima242/command_line_program.git"
@@ -21,5 +24,8 @@
     "chalk": "^4.1.2",
     "chalk-table": "^1.0.2",
     "draftlog": "^1.0.13"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
   }
 }
