@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/JoaoVitorLima242/command_line_program/issues"
   },
-  "homepage": "https://github.com/JoaoVitorLima242/command_line_program#readme"
+  "homepage": "https://github.com/JoaoVitorLima242/command_line_program#readme",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "chalk-table": "^1.0.2",
+    "draftlog": "^1.0.13"
+  }
 }
