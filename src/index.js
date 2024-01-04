@@ -1,6 +1,7 @@
 import DraftLog from "draftlog";
 import chalk from "chalk";
 import chalkTable from "chalk-table";
+import readline from "readline";
 
 import database from "../database.json" assert { type: "json" };
 
@@ -19,3 +20,8 @@ const options = {
 
 const table = chalkTable(options, database);
 const print = console.draft(table);
+
+const terminal = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
