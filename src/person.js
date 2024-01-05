@@ -38,4 +38,18 @@ export default class Person {
       ),
     };
   }
+
+  static generateInstanceFromString(str) {
+    const SEPARATOR = " ";
+
+    const [id, vehicles, kmTraveled, from, to] = str.split(SEPARATOR);
+
+    return new Person({
+      id,
+      kmTraveled,
+      from,
+      to,
+      vehicles: vehicles.split(","),
+    });
+  }
 }
