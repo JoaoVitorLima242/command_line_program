@@ -10,7 +10,9 @@ terminalController.initializeTerminal(database, LANGUAGE);
 
 async function mainLoop() {
   try {
-    const answer = await terminalController.question("Add a new person: (id vehicles_1,vehicles_2,vehicles_3 kmTraveled from to)\n\n");
+    const answer = await terminalController.question(
+      "Add a new person: (id vehicles_1,vehicles_2,vehicles_3 kmTraveled from to)\n\n"
+    );
     if (answer === STOP_TERM) {
       terminalController.closeTerminal();
       console.log("Process finished!");
@@ -18,6 +20,7 @@ async function mainLoop() {
     }
 
     const person = Person.generateInstanceFromString(answer);
+    terminalController.updateTable(person.formatted(LANGUAGE));
 
     return mainLoop();
   } catch (e) {
