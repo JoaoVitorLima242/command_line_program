@@ -1,6 +1,7 @@
 import TerminalController from "./terminalController.js";
 import database from "./../database.json" assert { type: "json" };
 import Person from "./person.js";
+import { save } from "./repository.js";
 
 const LANGUAGE = "pt-br";
 const STOP_TERM = ":q";
@@ -21,6 +22,7 @@ async function mainLoop() {
 
     const person = Person.generateInstanceFromString(answer);
     terminalController.updateTable(person.formatted(LANGUAGE));
+    await save(person);
 
     return mainLoop();
   } catch (e) {
