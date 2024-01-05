@@ -46,4 +46,8 @@ export default class TerminalController {
   question(msg = "") {
     return new Promise((resolve) => this.terminal.question(msg, resolve));
   }
+
+  closeTerminal() {
+    this.terminal.close()
+  }
 }
