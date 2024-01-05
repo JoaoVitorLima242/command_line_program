@@ -8,15 +8,34 @@ export default class Person {
   }
 
   formatted(language) {
+    const dateFormatOptions = {
+      month: "long",
+      day: "2-digit",
+      year: "numeric",
+    };
+
+    const mapDate = (date) => {
+      const [year, month, day] = date.split("-").map(Number);
+
+      return new Date(year, month - 1, day);
+    };
+
     return {
       id: Number(this.id),
-      vehicles: new Intl.listFormat(language, {
+      vehicles: new Intl.ListFormat(language, {
         style: "long",
         type: "conjunction",
       }).format(this.vehicles),
-      //   kmTraveled:
-      // from
-      // to
+      kmTraveled: new Intl.NumberFormat(language, {
+        style: "unit",
+        unit: "kilometer",
+      }).format(this.kmTraveled),
+      from: new Intl.DateTimeFormat(language, dateFormatOptions).format(
+        mapDate(this.from)
+      ),
+      to: new Intl.DateTimeFormat(language, dateFormatOptions).format(
+        mapDate(this.to)
+      ),
     };
   }
 }
